@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#87CEEB" />
+    <meta name="description" content="Jai Chaudhary - Data Scientist & AI/ML Engineer Portfolio. Featuring interactive 3D mountain journey through professional achievements with Studio Ghibli aesthetics." />
+    <meta name="keywords" content="Data Science, AI, Machine Learning, Portfolio, React, Three.js, Jai Chaudhary" />
+    <meta name="author" content="Jai Chaudhary" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jai Chaudhary | Data Scientist Portfolio" />
+    <meta property="og:description" content="Interactive portfolio showcasing data science and AI/ML projects with Studio Ghibli inspired design" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Preload important fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Crimson+Text:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" />
+    
+    <title>Jai Chaudhary | Data Scientist & AI/ML Engineer</title>
+    
+    <style>
+      /* Loading screen styles */
+      body {
+        margin: 0;
+        font-family: 'Nunito Sans', sans-serif;
+        background: linear-gradient(180deg, #E6F3FF 0%, #87CEEB 25%, #FFB6C1 60%, #9ACD32 100%);
+      }
+      
+      #root {
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      /* Loading animation */
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #E6F3FF 0%, #87CEEB 25%, #FFB6C1 60%, #9ACD32 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .loading-content {
+        text-align: center;
+        color: #2F4F4F;
+      }
+      
+      .loading-mountain {
+        font-size: 4rem;
+        animation: bounce 1.5s ease-in-out infinite;
+      }
+      
+      .loading-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      /* Hide loading when React loads */
+      .loaded .loading {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+      <div class="loading-content">
+        <div class="loading-mountain">🏔️</div>
+        <div class="loading-text">Loading Portfolio...</div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Hide loading screen when React loads
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+          setTimeout(function() {
+            const loading = document.getElementById('loading');
+            if (loading) {
+              loading.remove();
+            }
+          }, 500);
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
